@@ -3,10 +3,569 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Velvet Noir Boutique V4 — loja premium de e-commerce para dropshipping com home completa, página de produto detalhada, carrinho avançado e UX profissional." />
-  <title>Velvet Noir Boutique V4</title>
+  <meta name="description" content="Velvet Noir Boutique V3 — landing premium de e-commerce para dropshipping com menu mobile, cart drawer visual, trust signals e UX mais profissional." />
+  <title>Velvet Noir Boutique V3</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root, [data-theme="light"]
+    :root, [data-theme="light"] {
+      --text-xs: clamp(.75rem, .7rem + .25vw, .875rem);
+      --text-sm: clamp(.875rem, .8rem + .35vw, 1rem);
+      --text-base: clamp(1rem, .95rem + .25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + .75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.6rem);
+      --space-1:.25rem; --space-2:.5rem; --space-3:.75rem; --space-4:1rem; --space-5:1.25rem; --space-6:1.5rem; --space-8:2rem; --space-10:2.5rem; --space-12:3rem; --space-16:4rem; --space-20:5rem; --space-24:6rem;
+      --radius-sm:.5rem; --radius-md:.85rem; --radius-lg:1.1rem; --radius-xl:1.75rem; --radius-full:9999px;
+      --color-bg:#f6f1ee; --color-surface:#fffaf7; --color-surface-2:#f0e7e2; --color-surface-3:#e6dbd6;
+      --color-border:rgba(42,25,29,.12); --color-text:#24181b; --color-text-muted:#6f5e63; --color-text-faint:#a08f93;
+      --color-primary:#74193d; --color-primary-hover:#56102d; --color-primary-soft:rgba(116,25,61,.09); --color-accent:#cfa66d; --color-success:#46692c;
+      --shadow-sm:0 8px 24px rgba(31,17,20,.08); --shadow-md:0 18px 42px rgba(31,17,20,.12); --shadow-lg:0 28px 68px rgba(31,17,20,.18);
+      --font-display:'Cormorant Garamond', Georgia, serif; --font-body:'Manrope', Arial, sans-serif; --content:1200px;
+    }
+    [data-theme="dark"] {
+      --color-bg:#120d10; --color-surface:#191216; --color-surface-2:#23191e; --color-surface-3:#2d2027;
+      --color-border:rgba(255,246,247,.09); --color-text:#f8eef0; --color-text-muted:#c9b8bc; --color-text-faint:#89777d;
+      --color-primary:#9a2d54; --color-primary-hover:#b53b68; --color-primary-soft:rgba(181,59,104,.14); --color-accent:#ddb783; --color-success:#7eb257;
+      --shadow-sm:0 8px 24px rgba(0,0,0,.24); --shadow-md:0 18px 42px rgba(0,0,0,.34); --shadow-lg:0 28px 68px rgba(0,0,0,.46);
+    }
+    *,*:before,*:after{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;min-height:100vh;font-family:var(--font-body);font-size:var(--text-base);line-height:1.6;color:var(--color-text);background:radial-gradient(circle at top right, rgba(154,45,84,.18), transparent 24%),radial-gradient(circle at left 15%, rgba(221,183,131,.08), transparent 20%),var(--color-bg)}
+    a{text-decoration:none;color:inherit} img,svg{display:block;max-width:100%;height:auto} button,input{font:inherit} .container{width:min(calc(100% - 1.2rem),var(--content));margin-inline:auto}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0} .skip-link{position:absolute;left:-9999px;top:1rem;background:var(--color-primary);color:#fff;padding:.8rem 1rem;border-radius:var(--radius-sm)} .skip-link:focus{left:1rem;z-index:999}
+    .announcement{border-bottom:1px solid var(--color-border);background:linear-gradient(90deg,var(--color-primary-soft),transparent)} .announcement .container{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:.7rem 0;color:var(--color-text-muted);font-size:var(--text-sm)}
+    .topbar{position:sticky;top:0;z-index:70;border-bottom:1px solid var(--color-border);backdrop-filter:blur(18px);background:rgba(18,13,16,.78)} [data-theme="light"] .topbar{background:rgba(246,241,238,.84)}
+    .nav{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1rem;padding:1rem 0}
+    .brand{display:flex;align-items:center;gap:.9rem} .brand-mark{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--color-border);background:linear-gradient(145deg,var(--color-primary-soft),transparent);color:var(--color-accent)} .brand-mark svg{width:24px;height:24px}
+    .brand-text strong{display:block;font-family:var(--font-display);font-size:1.55rem;line-height:1} .brand-text span{display:block;font-size:var(--text-xs);letter-spacing:.22em;text-transform:uppercase;color:var(--color-text-muted)}
+    .nav-links,.hero-points,.icon-row,.trust-badges,.footer-links,.product-actions,.bundle-actions,.sticky-mobile-bar{display:flex;gap:.8rem;flex-wrap:wrap}
+    .nav-links{justify-content:center;color:var(--color-text-muted)} .nav-links a{padding:.5rem .75rem;border-radius:var(--radius-full)} .nav-links a:hover{background:var(--color-surface-2);color:var(--color-text)}
+    .nav-actions{display:flex;gap:.65rem;align-items:center}
+    .btn,.icon-btn{min-height:46px;padding:.9rem 1.15rem;border-radius:var(--radius-full);border:1px solid var(--color-border);background:transparent;color:var(--color-text);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:.55rem;transition:.22s ease}
+    .btn:hover,.icon-btn:hover{background:var(--color-surface-2)} .btn-primary{background:var(--color-primary);color:#fff;border-color:transparent;box-shadow:var(--shadow-sm)} .btn-primary:hover{background:var(--color-primary-hover);transform:translateY(-1px)}
+    .cart-btn{position:relative} .cart-count{position:absolute;top:-4px;right:-4px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--color-primary);color:#fff;font-size:12px;font-weight:800;border:2px solid var(--color-bg)}
+    .mobile-only{display:none}
+    .section{padding:clamp(3rem,6vw,6rem) 0} .eyebrow{display:inline-flex;align-items:center;gap:.45rem;padding:.45rem .85rem;border-radius:var(--radius-full);background:var(--color-primary-soft);border:1px solid var(--color-border);color:var(--color-accent);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.16em}
+    h1,h2,h3{font-family:var(--font-display);line-height:1.05;margin:0} h1{font-size:clamp(3.2rem,7vw,6.2rem);max-width:10ch;margin-top:1rem} h2{font-size:clamp(2.1rem,4vw,3.5rem)} h3{font-size:1.7rem} p{margin:0} .muted{color:var(--color-text-muted)}
+    .hero{padding-top:2rem} .quick-strip{display:flex;gap:.75rem;overflow:auto;padding-bottom:.3rem;scrollbar-width:none} .quick-strip::-webkit-scrollbar{display:none} .quick-strip a{white-space:nowrap;padding:.8rem 1rem;border-radius:var(--radius-full);border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text-muted)}
+    .hero-grid{display:grid;grid-template-columns:1.03fr .97fr;gap:1rem;align-items:stretch;margin-top:1rem}
+    .panel,.feature-card,.product-card,.trust-card,.faq-item,.quote,.policy-card,.bundle-card,.review-strip,.cart-drawer,.drawer-menu{background:var(--color-surface);border:1px solid var(--color-border);box-shadow:var(--shadow-md)}
+    .hero-copy{padding:clamp(1.5rem,3.4vw,2.9rem);border-radius:var(--radius-xl)} .hero-copy p{max-width:58ch;margin:1.1rem 0 1.6rem;color:var(--color-text-muted)}
+    .hero-points span,.trust-badge{padding:.55rem .85rem;border-radius:var(--radius-full);border:1px solid var(--color-border);background:rgba(255,255,255,.02);color:var(--color-text-muted);font-size:var(--text-sm)}
+    .hero-side{display:grid;gap:1rem}
+    .hero-visual{position:relative;overflow:hidden;min-height:420px;border-radius:var(--radius-xl);padding:1.4rem;display:flex;align-items:end}
+    .hero-visual:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.72)),url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1400&q=80') center/cover;opacity:.95}
+    .hero-overlay{position:relative;z-index:1;max-width:30ch;color:#fff} .hero-overlay p{color:rgba(255,255,255,.84);margin-top:.5rem}
+    .review-strip{padding:1rem;border-radius:var(--radius-xl)} .review-stars{color:var(--color-accent);letter-spacing:.18em;font-size:1rem} .review-strip p{margin-top:.35rem;color:var(--color-text-muted)}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:1rem;flex-wrap:wrap;margin-bottom:1.4rem} .section-head p{max-width:60ch;color:var(--color-text-muted)}
+    .features-grid,.products-grid,.trust-grid,.faq-grid,.quote-grid,.policy-grid{display:grid;gap:1rem} .features-grid{grid-template-columns:repeat(4,minmax(0,1fr))} .products-grid{grid-template-columns:repeat(4,minmax(0,1fr))} .trust-grid{grid-template-columns:repeat(4,minmax(0,1fr))} .faq-grid{grid-template-columns:repeat(2,minmax(0,1fr))} .quote-grid,.policy-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .feature-card{padding:1.25rem;border-radius:var(--radius-lg);min-height:220px;position:relative;overflow:hidden} .feature-card:after{content:"";position:absolute;inset:auto -15px -25px auto;width:110px;height:110px;background:radial-gradient(circle,rgba(221,183,131,.18),transparent 65%)} .small-label,.product-badge{font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--color-accent)} .feature-card p{margin-top:.7rem;color:var(--color-text-muted)}
+    .product-card{overflow:hidden;border-radius:var(--radius-lg)} .product-image{aspect-ratio:4/5;position:relative;overflow:hidden;background:var(--color-surface-2)} .product-image img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease} .product-card:hover .product-image img{transform:scale(1.035)} .wishlist-badge{position:absolute;top:12px;right:12px;padding:.45rem .7rem;border-radius:var(--radius-full);background:rgba(18,13,16,.58);border:1px solid rgba(255,255,255,.14);color:#fff;font-size:12px;backdrop-filter:blur(8px)}
+    .product-info{padding:1.1rem} .product-info p{margin-top:.5rem;color:var(--color-text-muted)} .price-row{display:flex;justify-content:space-between;align-items:center;gap:.8rem;margin-top:1rem} .price{font-weight:800;font-size:1.08rem}
+    .bundle-card{padding:1.5rem;border-radius:var(--radius-xl);display:grid;grid-template-columns:1.05fr .95fr;gap:1rem;align-items:center}
+    .bundle-box{display:grid;gap:.7rem} .bundle-item{display:flex;justify-content:space-between;gap:1rem;padding:.85rem 1rem;border-radius:var(--radius-lg);border:1px solid var(--color-border);background:rgba(255,255,255,.02)} .bundle-item span:last-child{color:var(--color-accent);font-weight:700}
+    .trust-card,.faq-item,.quote,.policy-card{padding:1.2rem;border-radius:var(--radius-lg)} .trust-card strong,.policy-card strong{display:block;margin-bottom:.35rem;font-size:1.02rem} .trust-card p,.faq-item p,.quote p,.policy-card p{color:var(--color-text-muted)} .quote strong{display:block;color:var(--color-accent);margin-bottom:.5rem}
+    .newsletter{padding:1.5rem;border-radius:var(--radius-xl);border:1px solid var(--color-border);background:linear-gradient(135deg,var(--color-primary-soft),transparent),var(--color-surface);display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;box-shadow:var(--shadow-md)} .newsletter-form{display:flex;gap:.7rem;flex-wrap:wrap} .newsletter input{min-width:280px;min-height:48px;padding:0 1rem;border-radius:var(--radius-full);border:1px solid var(--color-border);background:var(--color-bg);color:var(--color-text)}
+    footer{padding:2rem 0 6rem;border-top:1px solid var(--color-border);color:var(--color-text-muted)} .footer-grid{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:flex-start} .footer-links a{padding:.4rem 0}
+    .sticky-mobile-bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:80;padding:.75rem;background:rgba(18,13,16,.94);backdrop-filter:blur(18px);border-top:1px solid var(--color-border)} [data-theme="light"] .sticky-mobile-bar{background:rgba(246,241,238,.96)} .sticky-mobile-bar .btn{flex:1;min-height:56px}
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.46);opacity:0;pointer-events:none;transition:.2s ease;z-index:88} .overlay.active{opacity:1;pointer-events:auto}
+    .drawer-menu,.cart-drawer{position:fixed;top:0;right:-100%;width:min(92vw,420px);height:100vh;z-index:90;padding:1rem;transition:.26s ease;display:flex;flex-direction:column;gap:1rem;background:var(--color-surface)} .drawer-menu.active,.cart-drawer.active{right:0}
+    .drawer-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:.75rem;border-bottom:1px solid var(--color-border)} .drawer-nav{display:grid;gap:.6rem} .drawer-nav a{padding:1rem;border-radius:var(--radius-lg);border:1px solid var(--color-border);background:var(--color-surface-2)}
+    .cart-items{display:grid;gap:.8rem;overflow:auto} .cart-item{display:grid;grid-template-columns:72px 1fr auto;gap:.8rem;align-items:center;padding:.7rem;border:1px solid var(--color-border);border-radius:var(--radius-lg);background:var(--color-surface-2)} .cart-item img{width:72px;height:88px;object-fit:cover;border-radius:.8rem} .cart-item strong{display:block} .cart-footer{margin-top:auto;display:grid;gap:.8rem;padding-top:.8rem;border-top:1px solid var(--color-border)} .cart-line{display:flex;justify-content:space-between;gap:1rem;color:var(--color-text-muted)} .cart-line.total{color:var(--color-text);font-weight:800}
+    @media (max-width:1100px){.nav{grid-template-columns:auto auto}.nav-links{display:none}.mobile-only{display:inline-flex}.hero-grid,.bundle-card,.quote-grid,.policy-grid,.faq-grid{grid-template-columns:1fr}.features-grid,.products-grid,.trust-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (max-width:720px){.announcement .container,.section-head,.newsletter,.footer-grid{flex-direction:column;align-items:flex-start}.newsletter{grid-template-columns:1fr}.newsletter-form,.newsletter input,.newsletter .btn{width:100%}.features-grid,.products-grid,.trust-grid,.faq-grid,.quote-grid,.policy-grid{grid-template-columns:1fr}.sticky-mobile-bar{display:flex}.nav{grid-template-columns:1fr auto}.nav-actions .btn:not(.mobile-only),.nav-actions .icon-btn:not(.mobile-only){display:none}.hero-copy,.hero-visual,.review-strip{border-radius:1.2rem}.hero-visual{min-height:360px} h1{max-width:12ch} .bundle-card{padding:1.1rem}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="overlay" id="overlay"></div>
+
+  <div class="announcement">
+    <div class="container">
+      <span>Envio discreto · Selos de confiança · Layout premium para dropshipping</span>
+      <span>V3 com menu mobile, cart drawer e estrutura mais comercial</span>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#inicio" class="brand" aria-label="Velvet Noir Boutique">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M12 3c2.4 3.2 5 5 7.5 6.4-1 6.1-3.7 9.3-7.5 11.6C8.2 18.7 5.5 15.5 4.5 9.4 7 8 9.6 6.2 12 3Z"></path>
+            <path d="M9.2 11.6c1 .8 1.8 1.4 2.8 2.1 1-.7 1.9-1.3 2.8-2.4"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <strong>Velvet Noir</strong>
+          <span>Boutique íntima</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Principal">
+        <a href="#colecoes">Coleções</a>
+        <a href="#destaques">Destaques</a>
+        <a href="#kits">Kits</a>
+        <a href="#confianca">Confiança</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" data-theme-toggle aria-label="Alternar tema">◐</button>
+        <button class="icon-btn mobile-only" data-open-menu aria-label="Abrir menu">☰</button>
+        <button class="icon-btn cart-btn" data-open-cart aria-label="Abrir carrinho">
+          👜 <span class="cart-count" data-cart-count>2</span>
+        </button>
+        <a class="btn" href="#colecoes">Ver coleção</a>
+        <a class="btn btn-primary" href="#destaques">Comprar agora</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="section hero" id="inicio">
+      <div class="container">
+        <div class="quick-strip" aria-label="Acesso rápido">
+          <a href="#colecoes">Vibradores</a>
+          <a href="#colecoes">Lubrificantes</a>
+          <a href="#kits">Kits para casais</a>
+          <a href="#confianca">Envio discreto</a>
+          <a href="#faq">Perguntas frequentes</a>
+        </div>
+
+        <div class="hero-grid">
+          <article class="panel hero-copy">
+            <span class="eyebrow">Loja premium para dropshipping</span>
+            <h1>Uma home com cara de marca real, pronta para vender melhor.</h1>
+            <p>Esta versão adiciona elementos típicos de e-commerce mais maduro: menu mobile, carrinho lateral visual, prova social mais visível, bloco de kits, mais sinais de confiança e CTAs pensados para navegação no celular.</p>
+            <div class="product-actions">
+              <a class="btn btn-primary" href="#destaques">Explorar best-sellers</a>
+              <a class="btn" href="#confianca">Ver confiança</a>
+            </div>
+            <div class="hero-points" style="margin-top:1rem;">
+              <span>Embalagem discreta</span>
+              <span>Checkout adaptável</span>
+              <span>Tom premium e elegante</span>
+            </div>
+            <div class="trust-badges" style="margin-top:1rem;">
+              <span class="trust-badge">Pagamento seguro</span>
+              <span class="trust-badge">Atendimento reservado</span>
+              <span class="trust-badge">Políticas visíveis</span>
+            </div>
+          </article>
+
+          <div class="hero-side">
+            <article class="panel hero-visual">
+              <div class="hero-overlay">
+                <span class="eyebrow">Campanha principal</span>
+                <h2 style="margin:.75rem 0;">Desejo elegante, experiência discreta.</h2>
+                <p>Visual editorial para posicionar seus produtos como coleção autoral e não simples catálogo revendido.</p>
+              </div>
+            </article>
+            <article class="review-strip">
+              <div class="review-stars">★★★★★</div>
+              <p><strong style="color:var(--color-text);">4,9/5 em experiência percebida</strong> · Bloco pronto para avaliação média, selos ou reviews verificados na home [web:55][web:64].</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="colecoes">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Navegação comercial</span>
+            <h2>Coleções claras e mais próximas de uma loja real.</h2>
+          </div>
+          <p>Homepages de e-commerce ganham clareza quando exibem categorias, avaliações e caminhos rápidos de descoberta já nas primeiras dobras [web:55][web:64].</p>
+        </div>
+        <div class="features-grid">
+          <article class="feature-card">
+            <span class="small-label">01 · Entrada</span>
+            <h3>Essenciais íntimos</h3>
+            <p>Produtos de recorrência para compor entrada do catálogo e aumentar recompra.</p>
+          </article>
+          <article class="feature-card">
+            <span class="small-label">02 · Best-seller</span>
+            <h3>Vibradores premium</h3>
+            <p>Itens com maior apelo visual para anúncios, reels e destaque principal da home.</p>
+          </article>
+          <article class="feature-card">
+            <span class="small-label">03 · Ticket médio</span>
+            <h3>Acessórios para casais</h3>
+            <p>Kits e combinações pensados para elevar valor percebido e aumentar o carrinho.</p>
+          </article>
+          <article class="feature-card">
+            <span class="small-label">04 · Editorial</span>
+            <h3>Lingerie & fantasia</h3>
+            <p>Camada estética da marca, fortalecendo o posicionamento sensual e sofisticado.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="destaques">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Produtos em destaque</span>
+            <h2>Cards mais comerciais, com aparência premium.</h2>
+          </div>
+          <p>Avaliações, preço, CTA fixo e acesso rápido ao carrinho ajudam o usuário a agir sem perder contexto, especialmente no mobile [web:55][web:56][web:59].</p>
+        </div>
+
+        <div class="products-grid">
+          <article class="product-card">
+            <div class="product-image">
+              <span class="wishlist-badge">Mais vendido</span>
+              <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80" alt="Produto premium de autocuidado íntimo" width="900" height="1125" loading="lazy">
+            </div>
+            <div class="product-info">
+              <span class="product-badge">Autocuidado íntimo</span>
+              <h3>Velvet Touch</h3>
+              <p>Modelo de produto principal com visual refinado e forte apelo de coleção signature.</p>
+              <div class="price-row"><span class="price">R$ 189,90</span><span class="small-label">★★★★★ 4,9</span></div>
+              <div class="product-actions">
+                <button class="btn btn-primary" data-add-cart="Velvet Touch|189.90|https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=300&q=80">Adicionar</button>
+                <a class="btn" href="#faq">Detalhes</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="wishlist-badge">Kit premium</span>
+              <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80" alt="Coleção premium para casal" width="900" height="1125" loading="lazy">
+            </div>
+            <div class="product-info">
+              <span class="product-badge">Experiência a dois</span>
+              <h3>Duo Intense</h3>
+              <p>Kit para casal com comunicação ideal para campanhas com ticket mais alto.</p>
+              <div class="price-row"><span class="price">R$ 249,90</span><span class="small-label">★★★★★ 4,8</span></div>
+              <div class="product-actions">
+                <button class="btn btn-primary" data-add-cart="Duo Intense|249.90|https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=300&q=80">Adicionar</button>
+                <a class="btn" href="#faq">Detalhes</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="wishlist-badge">Nova coleção</span>
+              <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80" alt="Lingerie sofisticada para boutique íntima" width="900" height="1125" loading="lazy">
+            </div>
+            <div class="product-info">
+              <span class="product-badge">Editorial boutique</span>
+              <h3>Noir Lace</h3>
+              <p>Peça visual para reforçar identidade de marca e vitrines mais sofisticadas.</p>
+              <div class="price-row"><span class="price">R$ 159,90</span><span class="small-label">★★★★★ 4,7</span></div>
+              <div class="product-actions">
+                <button class="btn btn-primary" data-add-cart="Noir Lace|159.90|https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=300&q=80">Adicionar</button>
+                <a class="btn" href="#faq">Detalhes</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="wishlist-badge">Entrada</span>
+              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80" alt="Produto elegante de coleção premium" width="900" height="1125" loading="lazy">
+            </div>
+            <div class="product-info">
+              <span class="product-badge">Seleção signature</span>
+              <h3>Silk Ritual</h3>
+              <p>Produto de entrada com estética refinada, ideal para compor coleção enxuta.</p>
+              <div class="price-row"><span class="price">R$ 97,90</span><span class="small-label">★★★★★ 4,8</span></div>
+              <div class="product-actions">
+                <button class="btn btn-primary" data-add-cart="Silk Ritual|97.90|https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=300&q=80">Adicionar</button>
+                <a class="btn" href="#faq">Detalhes</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="kits">
+      <div class="container">
+        <article class="bundle-card">
+          <div>
+            <span class="eyebrow">Oferta combinada</span>
+            <h2 style="margin:.8rem 0;">Kit de ticket médio para campanhas e upsell.</h2>
+            <p class="muted">Combos costumam facilitar a comunicação de valor, criam narrativa de uso e ajudam a elevar o carrinho com menos fricção visual.</p>
+            <div class="bundle-actions" style="margin-top:1.1rem;">
+              <button class="btn btn-primary" data-add-cart="Kit Nuit Privée|329.90|https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=300&q=80">Adicionar kit</button>
+              <a class="btn" href="#confianca">Ver garantias</a>
+            </div>
+          </div>
+          <div class="bundle-box">
+            <div class="bundle-item"><span>Massageador signature</span><span>R$ 189,90</span></div>
+            <div class="bundle-item"><span>Lubrificante premium</span><span>R$ 69,90</span></div>
+            <div class="bundle-item"><span>Acessório para casal</span><span>R$ 119,90</span></div>
+            <div class="bundle-item"><span>Preço do kit</span><span>R$ 329,90</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="confianca">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Trust signals</span>
+            <h2>Mais credibilidade em pontos críticos da jornada.</h2>
+          </div>
+          <p>Trust badges, avaliações, políticas claras e garantias visíveis são sinais recorrentes de confiança em e-commerce e ajudam o usuário a reduzir medo de fraude ou frustração [web:55][web:57][web:58][web:61].</p>
+        </div>
+
+        <div class="trust-grid">
+          <article class="trust-card">
+            <strong>Envio discreto</strong>
+            <p>Mensagem explícita sobre privacidade para diminuir a principal objeção do nicho.</p>
+          </article>
+          <article class="trust-card">
+            <strong>Pagamento seguro</strong>
+            <p>Espaço ideal para logos de processadores, meios de pagamento e segurança.</p>
+          </article>
+          <article class="trust-card">
+            <strong>Política transparente</strong>
+            <p>Prazo, trocas e suporte visíveis ajudam a reduzir hesitação antes do clique final.</p>
+          </article>
+          <article class="trust-card">
+            <strong>Avaliações e prova social</strong>
+            <p>Reviews e nota média podem aparecer na home, nas coleções e nos produtos [web:55].</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Políticas em destaque</span>
+            <h2>Blocos prontos para checkout mais confiável.</h2>
+          </div>
+          <p>Políticas claras de entrega, troca e contato são parte relevante da confiança percebida em lojas menos conhecidas [web:57][web:63][web:64].</p>
+        </div>
+        <div class="policy-grid">
+          <article class="policy-card">
+            <strong>Prazo de entrega</strong>
+            <p>Substitua por informações reais do fornecedor ou da operação de envio.</p>
+          </article>
+          <article class="policy-card">
+            <strong>Troca e suporte</strong>
+            <p>Área pronta para esclarecer canal de atendimento e processo de resolução.</p>
+          </article>
+          <article class="policy-card">
+            <strong>Garantia de compra</strong>
+            <p>Inclua meios de pagamento, criptografia, política e segurança do pedido.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Prova social</span>
+            <h2>Depoimentos posicionados para primeira compra.</h2>
+          </div>
+          <p>Reviews são um dos sinais mais úteis para visitantes que ainda não conhecem a marca, especialmente na home e nas páginas de produto [web:55][web:57].</p>
+        </div>
+        <div class="quote-grid">
+          <article class="quote">
+            <strong>Visual de boutique</strong>
+            <p>“A loja parece uma marca premium de verdade. Isso aumentou muito minha confiança para comprar.”</p>
+          </article>
+          <article class="quote">
+            <strong>Compra sem constrangimento</strong>
+            <p>“O aviso de envio discreto e a comunicação elegante deixaram a experiência mais confortável.”</p>
+          </article>
+          <article class="quote">
+            <strong>Melhor no celular</strong>
+            <p>“Os botões maiores e o carrinho lateral deixam tudo mais simples no mobile.”</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">FAQ comercial</span>
+            <h2>Perguntas que respondem objeções antes do checkout.</h2>
+          </div>
+          <p>FAQs ajudam a antecipar dúvidas sobre entrega, privacidade, segurança e estrutura da compra, o que reduz atrito na decisão [web:57][web:64].</p>
+        </div>
+        <div class="faq-grid">
+          <article class="faq-item">
+            <h3>O envio é discreto?</h3>
+            <p>Sim. Você pode configurar embalagem neutra e reforçar isso na home, produto e checkout.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Este layout funciona para Shopify?</h3>
+            <p>Sim. O HTML serve como base visual e pode ser convertido em seções ou blocos da plataforma.</p>
+          </article>
+          <article class="faq-item">
+            <h3>O carrinho lateral é real?</h3>
+            <p>Sim, nesta demo ele funciona visualmente para simular experiência de compra mais profissional.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Posso trocar produtos, nome e cores?</h3>
+            <p>Sim. Toda a estrutura está pronta para personalização rápida de branding e catálogo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container newsletter">
+        <div>
+          <span class="eyebrow">Clube privado</span>
+          <h2 style="margin-top:.7rem;">Capte leads para remarketing e novas coleções.</h2>
+          <p class="muted" style="margin-top:.6rem;max-width:55ch;">Bloco ideal para cupom de primeira compra, aquecimento de audiência e campanhas com melhor margem.</p>
+        </div>
+        <form class="newsletter-form">
+          <label class="sr-only" for="email">Seu e-mail</label>
+          <input id="email" type="email" placeholder="Seu melhor e-mail">
+          <button class="btn btn-primary" type="submit">Entrar no clube</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong style="display:block;font-family:var(--font-display);font-size:1.7rem;color:var(--color-text);">Velvet Noir Boutique V3</strong>
+        <p style="max-width:56ch;">Versão mais profissional, com carrinho visual, navegação mobile reforçada e blocos comerciais mais próximos de uma loja pronta para vender.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#colecoes">Coleções</a>
+        <a href="#destaques">Destaques</a>
+        <a href="#kits">Kits</a>
+        <a href="#confianca">Confiança</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="sticky-mobile-bar" aria-label="Ações rápidas mobile">
+    <button class="btn" data-open-cart>Ver carrinho</button>
+    <a class="btn btn-primary" href="#destaques">Comprar</a>
+  </div>
+
+  <aside class="drawer-menu" id="menuDrawer" aria-label="Menu mobile">
+    <div class="drawer-header">
+      <strong style="font-family:var(--font-display);font-size:1.5rem;">Menu</strong>
+      <button class="icon-btn" data-close-drawers aria-label="Fechar menu">✕</button>
+    </div>
+    <nav class="drawer-nav">
+      <a href="#colecoes">Coleções</a>
+      <a href="#destaques">Destaques</a>
+      <a href="#kits">Kits</a>
+      <a href="#confianca">Confiança</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </aside>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Carrinho lateral">
+    <div class="drawer-header">
+      <strong style="font-family:var(--font-display);font-size:1.5rem;">Seu carrinho</strong>
+      <button class="icon-btn" data-close-drawers aria-label="Fechar carrinho">✕</button>
+    </div>
+    <div class="cart-items" data-cart-items>
+      <div class="cart-item">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=300&q=80" alt="Produto no carrinho">
+        <div><strong>Velvet Touch</strong><span class="muted">1 unidade</span></div>
+        <strong>R$ 189,90</strong>
+      </div>
+      <div class="cart-item">
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=300&q=80" alt="Produto no carrinho">
+        <div><strong>Duo Intense</strong><span class="muted">1 unidade</span></div>
+        <strong>R$ 249,90</strong>
+      </div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-line"><span>Subtotal</span><span data-cart-subtotal>R$ 439,80</span></div>
+      <div class="cart-line"><span>Envio</span><span>Calculado no checkout</span></div>
+      <div class="cart-line total"><span>Total estimado</span><span data-cart-total>R$ 439,80</span></div>
+      <button class="btn btn-primary">Ir para o checkout</button>
+      <button class="btn" data-close-drawers>Continuar comprando</button>
+    </div>
+  </aside>
+
+  <script>
+    (function(){
+      const root = document.documentElement;
+      const overlay = document.getElementById('overlay');
+      const menuDrawer = document.getElementById('menuDrawer');
+      const cartDrawer = document.getElementById('cartDrawer');
+      const cartCount = document.querySelector('[data-cart-count]');
+      const cartItemsWrap = document.querySelector('[data-cart-items]');
+      const subtotalEl = document.querySelector('[data-cart-subtotal]');
+      const totalEl = document.querySelector('[data-cart-total]');
+      let theme = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      let cart = [
+        { name: 'Velvet Touch', price: 189.90, image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=300&q=80' },
+        { name: 'Duo Intense', price: 249.90, image: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=300&q=80' }
+      ];
+
+      function money(v){ return 'R$ ' + v.toFixed(2).replace('.', ','); }
+      function renderCart(){
+        cartItemsWrap.innerHTML = '';
+        cart.forEach(item => {
+          const row = document.createElement('div');
+          row.className = 'cart-item';
+          row.innerHTML = '<img src="'+item.image+'" alt="Produto no carrinho"><div><strong>'+item.name+'</strong><span class="muted">1 unidade</span></div><strong>'+money(item.price)+'</strong>';
+          cartItemsWrap.appendChild(row);
+        });
+        const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
+        cartCount.textContent = cart.length;
+        subtotalEl.textContent = money(subtotal);
+        totalEl.textContent = money(subtotal);
+      }
+
+      function closeDrawers(){ menuDrawer.classList.remove('active'); cartDrawer.classList.remove('active'); overlay.classList.remove('active'); }
+      function openMenu(){ closeDrawers(); menuDrawer.classList.add('active'); overlay.classList.add('active'); }
+      function openCart(){ closeDrawers(); cartDrawer.classList.add('active'); overlay.classList.add('active'); }
+
+      root.setAttribute('data-theme', theme);
+      const themeToggle = document.querySelector('[data-theme-toggle]');
+      function applyTheme(){ themeToggle.textContent = theme === 'dark' ? '☀︎' : '☾'; themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro'); root.setAttribute('data-theme', theme); }
+      applyTheme();
+      themeToggle.addEventListener('click', function(){ theme = theme === 'dark' ? 'light' : 'dark'; applyTheme(); });
+
+      document.querySelectorAll('[data-open-menu]').forEach(btn => btn.addEventListener('click', openMenu));
+      document.querySelectorAll('[data-open-cart]').forEach(btn => btn.addEventListener('click', openCart));
+      document.querySelectorAll('[data-close-drawers]').forEach(btn => btn.addEventListener('click', closeDrawers));
+      overlay.addEventListener('click', closeDrawers);
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawers(); });
+      document.querySelectorAll('.drawer-nav a').forEach(link => link.addEventListener('click', closeDrawers));
+
+      document.querySelectorAll('[data-add-cart]').forEach(btn => {
+        btn.addEventListener('click', function(){
+          const [name, price, image] = btn.getAttribute('data-add-cart').split('|');
+          cart.push({ name, price: Number(price), image });
+          renderCart();
+          openCart();
+        });
+      });
+
+      document.querySelector('.newsletter-form').addEventListener('submit', function(e){
+        e.preventDefault();
+        const input = document.getElementById('email');
+        if(!input.value.trim()){ input.focus(); return; }
+        alert('Lead capturado com sucesso. Agora conecte este formulário à sua ferramenta de e-mail.');
+        input.value = '';
+      });
+
+      renderCart();
+    })();
+  </script>
+</body>
+</html>
